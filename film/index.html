@@ -369,7 +369,7 @@ body{
       </div>
       <div class="work-card">
         <div class="work-name">IJS Electronics</div>
-        <p class="work-sub">Head of Operations &amp; Finance. Drove 40% turnover increase. SQL forecasting cut stock delays 30%. Managed plant relocations, GeM OEM verification, and Auto Expo 2025. Rebuilt the brand website and ran Fire India 2026.</p>
+        <p class="work-sub">Head of Operations &amp; Finance. Drove 40% turnover increase. SQL forecasting cut stock delays 30%. Managed plant relocations, GeM OEM verification, Auto Expo 2025 and Fire India 2026.</p>
         <div class="tags">
           <span class="tag">President's Escort Fleet</span>
           <span class="tag">PM Convoy</span>
@@ -403,9 +403,9 @@ body{
   <div class="panel-content">
     <div class="lbl">ACHIEVEMENTS</div>
     <ul class="ach-list">
-      <li class="ach-item"><span class="ach-n">01</span><span class="ach-t">Rang De Basanti edit: actor Atul Kulkarni called it "One of my favourites!" and turned it into a collaboration (116K views). Siddharth liked it too.</span></li>
+      <li class="ach-item"><span class="ach-n">01</span><span class="ach-t">Rang De Basanti edit: praised by actor Atul Kulkarni ("One of my favourites!") and turned into a collaboration; liked by actor Siddharth (116K views)</span></li>
       <li class="ach-item"><span class="ach-n">02</span><span class="ach-t">8.3M+ YouTube views across film edits and cultural content</span></li>
-      <li class="ach-item"><span class="ach-n">03</span><span class="ach-t">My videos have been shared across the web, including CBR, Reddit and Medium</span></li>
+      <li class="ach-item"><span class="ach-n">03</span><span class="ach-t">Videos shared and cited across the web, including CBR, Reddit and Medium</span></li>
       <li class="ach-item"><span class="ach-n">04</span><span class="ach-t">1st place, Digital Imaging, 17th Cofas International Computer Olympiad</span></li>
       <li class="ach-item"><span class="ach-n">05</span><span class="ach-t">Built lostintrovert.com and grandwarninglights.in, design to deployment</span></li>
       <li class="ach-item"><span class="ach-n">06</span><span class="ach-t">World Topper, Cambridge AS Mathematics (Times of India)</span></li>
@@ -488,6 +488,21 @@ function hit(t, freq, q, dur, gain, tone) {
   const og = ctx.createGain(); og.gain.setValueAtTime(gain * 0.4, t); og.gain.exponentialRampToValueAtTime(0.001, t + 0.1);
   o.connect(og).connect(ctx.destination); o.start(t); o.stop(t + 0.12);
 }
+function rewindSound() {
+  try {
+    ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+    const t = ctx.currentTime, d = 0.6;
+    const o = ctx.createOscillator(); o.type = 'sawtooth';
+    o.frequency.setValueAtTime(90, t); o.frequency.exponentialRampToValueAtTime(900, t + d);
+    const lfo = ctx.createOscillator(); lfo.frequency.setValueAtTime(18, t); lfo.frequency.linearRampToValueAtTime(60, t + d);
+    const lg = ctx.createGain(); lg.gain.value = 0.5;
+    const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.12, t + 0.08); g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+    lfo.connect(lg).connect(g.gain);
+    const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2200;
+    o.connect(lp).connect(g).connect(ctx.destination);
+    o.start(t); lfo.start(t); o.stop(t + d); lfo.stop(t + d);
+  } catch (e) {}
+}
 function clapSound() {
   try {
     ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
@@ -509,7 +524,7 @@ const nuke = document.getElementById('nuke');
 function setResetBtn() {
   nukeDone = true; nuke.style.cursor = 'pointer';
   nuke.innerHTML = '🔁 TAKE TWO<br><span style="font-size:10px;opacity:0.55;letter-spacing:0.15em;text-transform:lowercase">start over</span>';
-  nuke.onclick = function() { location.reload(); };
+  nuke.onclick = function() { rewindSound(); setTimeout(function() { location.reload(); }, 650); };
 }
 function tick() {
   rolled++;
