@@ -239,16 +239,19 @@ body{
 .who-tag{font-size:13px;color:var(--muted);font-weight:300;font-style:italic}
 
 /* WORK */
-.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
 .work-card{border-left:1px solid var(--amber2);padding-left:12px}
-.work-name{font-size:15px;font-weight:500;color:#fff;margin-bottom:6px}
-.work-sub{font-size:11px;color:rgba(255,250,240,0.78);line-height:1.5;margin-bottom:10px}
+.work-name{font-size:14px;font-weight:500;color:#fff;margin-bottom:4px}
+.work-sub{margin-bottom:6px;font-size:11px;color:rgba(255,250,240,0.78);line-height:1.5;margin-bottom:10px}
 .tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
 .tag{font-family:'Space Mono',monospace;font-size:8px;color:var(--amber);border:1px solid var(--amber4);padding:2px 7px;border-radius:2px}
+.edit-list{display:grid;gap:8px}
+.edit{font-size:11px;line-height:1.4;color:rgba(255,250,240,0.78)}
+.edit-t{color:#fff;font-weight:500}
 .work-link{font-family:'Space Mono',monospace;font-size:9px;color:var(--amber);text-decoration:none;border-bottom:1px solid var(--amber4);padding-bottom:1px}
 
 /* NUMBERS */
-.nums{display:flex;justify-content:center;gap:48px}
+.nums{display:flex;justify-content:center;gap:26px;flex-wrap:wrap}
 .num-v{font-family:'Space Mono',monospace;font-size:clamp(20px,2vw,30px);font-weight:700;color:var(--amber);line-height:1;margin-bottom:4px}
 .num-l{font-size:12px;color:var(--muted);font-weight:300;line-height:1.35}
 
@@ -286,8 +289,11 @@ body{
   .cell .v{font-size:15px}
   .cell.foot{padding:6px}
   .cta{font-size:10px}
-  .work-sub{font-size:10.5px;line-height:1.4}
+  .work-sub{font-size:10.5px;line-height:1.35;margin-bottom:2px}
+  .work-grid{gap:8px 18px}
   .who-photo{width:40px;height:40px;margin-bottom:10px}
+  #p4 .links{gap:4px}
+  #p4 .who-tag{font-size:11.5px}
 }
 
 /* RESPONSIVE */
@@ -335,7 +341,8 @@ body{
     <div class="lbl">WHO</div>
     <img src="../Photo.png" alt="Sahebjit" class="who-photo">
     <h1 class="who-name">Sahebjit Singh Chhabra</h1>
-    <p class="who-tag">Film obsessive. Video editor. The person who keeps the schedule on time.</p>
+    <p class="who-tag">I can't be put in a box... except this one.</p>
+    <p class="who-tag" style="margin-top:6px">Creator. Head of Operations &amp; Finance. CS grad.</p>
   </div>
   <div class="slate" data-i="0" data-lbl="WHO"></div>
 </section>
@@ -346,25 +353,26 @@ body{
     <div class="lbl">WORK</div>
     <div class="work-grid">
       <div class="work-card">
-        <div class="work-name">lostintrovert</div>
-        <p class="work-sub">Film edits that reached 8.3M+ views, several crossing 1M. My Rang De Basanti edit was found by actor Atul Kulkarni five years after I made it, and he turned it into a collaboration.</p>
+        <div class="work-name">IJS Electronics</div>
+        <p class="work-sub">Head of Operations &amp; Finance. Drove 40% turnover increase. SQL forecasting cut stock delays 30%. Managed plant relocations, GeM OEM verification, and Auto Expo 2025.</p>
         <div class="tags">
-          <span class="tag">Film Edits</span>
-          <span class="tag">Final Cut Pro</span>
-          <span class="tag">World Cinema</span>
-          <span class="tag">Atul Kulkarni Collab</span>
+          <span class="tag">President's Escort Fleet</span>
+          <span class="tag">PM Convoy</span>
+          <span class="tag">IAF</span>
+          <span class="tag">NSG</span>
+          <span class="tag">13+ Police Forces</span>
+          <span class="tag">OEM Maruti</span>
+          <span class="tag">40% Turnover</span>
         </div>
-        <a class="work-link" href="https://www.instagram.com/p/DRhlf2CDcfg/" target="_blank" rel="noopener">watch the collaboration →</a>
       </div>
       <div class="work-card">
-        <div class="work-name">IJS Electronics</div>
-        <p class="work-sub">Head of Operations &amp; Finance. Ran schedules, vendors, budgets and people for a manufacturer supplying the President's escort fleet, IAF, NSG and 13+ police forces. Moved the whole operation to two new sites with zero downtime and led Auto Expo 2025.</p>
-        <div class="tags">
-          <span class="tag">Scheduling</span>
-          <span class="tag">Budgets</span>
-          <span class="tag">Vendors</span>
-          <span class="tag">Excel</span>
-          <span class="tag">Logistics</span>
+        <div class="work-name">lostintrovert</div>
+        <p class="work-sub">Creator. 8.3M+ views. Made a Rang De Basanti edit that actor Atul Kulkarni turned into a collaboration.</p>
+        <a class="work-link" href="https://www.instagram.com/p/DRhlf2CDcfg/" target="_blank" rel="noopener">view collaboration →</a>
+        <div class="edit-list" style="margin-top:12px">
+          <div class="edit"><span class="edit-t">Rang De Basanti</span> <span class="edit-d">Lakshman Pandey | Ram Prasad Bismil</span> <a class="work-link" href="https://www.youtube.com/watch?v=FsPRKPPkZWc" target="_blank" rel="noopener">watch →</a></div>
+          <div class="edit"><span class="edit-t">Tamasha</span> <span class="edit-d">All I Want | Ved and Tara</span> <a class="work-link" href="https://www.youtube.com/watch?v=VMqLZIeI870" target="_blank" rel="noopener">watch →</a></div>
+          <div class="edit"><span class="edit-t">Natasha Romanoff</span> <span class="edit-d">It's Okay</span> <a class="work-link" href="https://www.youtube.com/watch?v=XJZ4-YuI0hk" target="_blank" rel="noopener">watch →</a></div>
         </div>
       </div>
     </div>
@@ -377,8 +385,8 @@ body{
   <div class="panel-content">
     <div class="lbl">NUMBERS</div>
     <div class="nums">
-      <div><div class="num-v">8.3M</div><div class="num-l">views across my film edits</div></div>
-      <div><div class="num-v">100K+</div><div class="num-l">views on the Atul Kulkarni collaboration</div></div>
+      <div><div class="num-v">8.3M</div><div class="num-l">views across edits, reels &amp; film content</div></div>
+      <div><div class="num-v">40%</div><div class="num-l">turnover growth at IJS Electronics</div></div>
     </div>
   </div>
   <div class="slate" data-i="2" data-lbl="NUMBERS"></div>
@@ -389,12 +397,12 @@ body{
   <div class="panel-content">
     <div class="lbl">ACHIEVEMENTS</div>
     <ul class="ach-list">
-      <li class="ach-item"><span class="ach-n">01</span><span class="ach-t">Rang De Basanti edit: actor Atul Kulkarni found it, shared it and turned it into a collaboration (100K+ views)</span></li>
-      <li class="ach-item"><span class="ach-n">02</span><span class="ach-t">8.3M+ YouTube views across film edits, several past 1M</span></li>
-      <li class="ach-item"><span class="ach-n">03</span><span class="ach-t">1st place, Digital Imaging, 17th Cofas International Computer Olympiad</span></li>
-      <li class="ach-item"><span class="ach-n">04</span><span class="ach-t">Built lostintrovert.com, my own film content platform, from design to deployment</span></li>
-      <li class="ach-item"><span class="ach-n">05</span><span class="ach-t">Led Auto Expo 2025 for IJS Electronics: logistics, creative execution and on-ground coordination</span></li>
-      <li class="ach-item"><span class="ach-n">06</span><span class="ach-t">World Topper, Cambridge AS Level Mathematics (Times of India)</span></li>
+      <li class="ach-item"><span class="ach-n">01</span><span class="ach-t">Rang De Basanti edit: actor Atul Kulkarni turned it into a collaboration (116K views). Siddharth liked it too.</span></li>
+      <li class="ach-item"><span class="ach-n">02</span><span class="ach-t">8.3M+ YouTube views across film edits and cultural content</span></li>
+      <li class="ach-item"><span class="ach-n">03</span><span class="ach-t">My videos have been shared across the web, including CBR, Reddit and Medium</span></li>
+      <li class="ach-item"><span class="ach-n">04</span><span class="ach-t">Built lostintrovert.com and grandwarninglights.in, design to deployment</span></li>
+      <li class="ach-item"><span class="ach-n">05</span><span class="ach-t">World Topper, Cambridge AS Mathematics (Times of India)</span></li>
+      <li class="ach-item"><span class="ach-n">06</span><span class="ach-t">Rank 1 of 5241, Decryptonite</span></li>
     </ul>
   </div>
   <div class="slate" data-i="3" data-lbl="ACHIEVEMENTS"></div>
@@ -405,14 +413,20 @@ body{
   <div class="panel-content">
     <div class="lbl">FIND ME</div>
     <div class="links">
+      <a class="link-row" href="https://linkedin.com/in/sahebjitchhabra" target="_blank" rel="noopener">
+        <span class="link-type">linkedin</span><span class="link-val">linkedin.com/in/sahebjitchhabra</span>
+      </a>
+      <a class="link-row" href="https://lostintrovert.com" target="_blank" rel="noopener">
+        <span class="link-type">site</span><span class="link-val">lostintrovert.com</span>
+      </a>
       <a class="link-row" href="https://youtube.com/@sahebjitchhabra" target="_blank" rel="noopener">
         <span class="link-type">youtube</span><span class="link-val">youtube.com/@sahebjitchhabra</span>
       </a>
       <a class="link-row" href="https://www.instagram.com/sahebchh/" target="_blank" rel="noopener">
         <span class="link-type">insta</span><span class="link-val">@sahebchh</span>
       </a>
-      <a class="link-row" href="https://lostintrovert.com" target="_blank" rel="noopener">
-        <span class="link-type">site</span><span class="link-val">lostintrovert.com</span>
+      <a class="link-row" href="https://grandwarninglights.in" target="_blank" rel="noopener">
+        <span class="link-type">company</span><span class="link-val">grandwarninglights.in</span>
       </a>
       <a class="link-row" href="mailto:saheb.chh@gmail.com">
         <span class="link-type">email</span><span class="link-val">saheb.chh@gmail.com</span>
@@ -420,11 +434,9 @@ body{
       <a class="link-row" href="tel:+919910200668">
         <span class="link-type">phone</span><span class="link-val">+91 99102 00668</span>
       </a>
-      <a class="link-row" href="https://linkedin.com/in/sahebjitchhabra" target="_blank" rel="noopener">
-        <span class="link-type">linkedin</span><span class="link-val">linkedin.com/in/sahebjitchhabra</span>
-      </a>
     </div>
-    <p class="who-tag" style="margin-top:10px">Based in Delhi. Available in Mumbai, Dec 2026 to Apr 2027.</p>
+    <p class="who-tag" style="margin-top:10px">Final Cut Pro · Canva · PowerPoint · Excel · own MacBook</p>
+    <p class="who-tag" style="margin-top:4px">Based in Delhi. Available in Mumbai, Dec 2026 to Apr 2027.</p>
   </div>
   <div class="slate" data-i="4" data-lbl="FIND ME"></div>
 </section>
