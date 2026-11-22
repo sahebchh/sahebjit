@@ -266,6 +266,30 @@ body{
 .link-row:hover .link-val{color:var(--amber)}
 #p4 .links{margin-top:auto;margin-bottom:auto}
 
+/* ONE SCREEN, NO SCROLL (desktop and laptop) */
+@media(min-width:701px){
+  html,body{height:100%;overflow:hidden}
+  .cards-grid{height:100vh;min-height:0;padding:50px 24px 76px;grid-template-rows:minmax(0,0.82fr) minmax(0,1fr)}
+  .panel{min-height:0}
+  .panel-content{height:100%;overflow:hidden}
+  #nuke{bottom:12px;padding:10px 26px;font-size:12px}
+  .ach-list{gap:6px}
+  .ach-t{font-size:clamp(10px,1.45vh,11.5px);line-height:1.32}
+  .links{gap:clamp(5px,1.1vh,10px)}
+  .lbl{margin-bottom:clamp(8px,1.8vh,18px)}
+}
+@media(min-width:701px) and (max-height:700px){
+  .slate-sticks{height:40px}
+  .stick{height:15px}
+  .stick.arm{bottom:15px}
+  .cell{padding:4px 10px}
+  .cell .v{font-size:15px}
+  .cell.foot{padding:6px}
+  .cta{font-size:10px}
+  .work-sub{font-size:10.5px;line-height:1.4}
+  .who-photo{width:40px;height:40px;margin-bottom:10px}
+}
+
 /* RESPONSIVE */
 @media(max-width:700px){
   html,body{scroll-behavior:auto}
@@ -370,9 +394,7 @@ body{
       <li class="ach-item"><span class="ach-n">03</span><span class="ach-t">1st place, Digital Imaging, 17th Cofas International Computer Olympiad</span></li>
       <li class="ach-item"><span class="ach-n">04</span><span class="ach-t">Built lostintrovert.com, my own film content platform, from design to deployment</span></li>
       <li class="ach-item"><span class="ach-n">05</span><span class="ach-t">Led Auto Expo 2025 for IJS Electronics: logistics, creative execution and on-ground coordination</span></li>
-      <li class="ach-item"><span class="ach-n">06</span><span class="ach-t">Moved a manufacturing operation to two new plant sites with zero disruption</span></li>
-      <li class="ach-item"><span class="ach-n">07</span><span class="ach-t">World Topper, Cambridge AS Level Mathematics (Times of India)</span></li>
-      <li class="ach-item"><span class="ach-n">08</span><span class="ach-t">Rank 1 of 5,241, Decryptonite</span></li>
+      <li class="ach-item"><span class="ach-n">06</span><span class="ach-t">World Topper, Cambridge AS Level Mathematics (Times of India)</span></li>
     </ul>
   </div>
   <div class="slate" data-i="3" data-lbl="ACHIEVEMENTS"></div>
@@ -476,7 +498,7 @@ function buildSlate(slate) {
       '<div class="cell"><div class="k">SCENE</div><div class="v">' + (i + 1) + '</div></div>' +
       '<div class="cell"><div class="k">TAKE</div><div class="v">1</div></div>' +
       '<div class="cell"><div class="k">ROLL</div><div class="v">A' + String(i + 1).padStart(3,'0') + '</div></div>' +
-      '<div class="cell big"><div class="k">PRODUCTION · SAHEBJIT</div><div class="v" style="font-size:' + Math.max(22, Math.min(58, (slate.offsetWidth || 320) / Math.max(label.length, 4) * 1.25)) + 'px">' + label + '</div></div>' +
+      '<div class="cell big"><div class="k">PRODUCTION · SAHEBJIT</div><div class="v" style="font-size:' + Math.max(20, Math.min(58, (slate.offsetHeight || 300) * 0.17, (slate.offsetWidth || 320) / Math.max(label.length, 4) * 1.25)) + 'px">' + label + '</div></div>' +
       '<div class="cell foot"><span class="cta">' + (IS_TOUCH_DEVICE ? 'tap for action' : 'click for action') + '</span>' +
       '<span class="k" style="margin-left:14px;font-family:Space Mono,monospace;font-size:8px;letter-spacing:0.3em;color:rgba(250,248,240,0.45)">' + dateStr + '</span></div>' +
     '</div>';
