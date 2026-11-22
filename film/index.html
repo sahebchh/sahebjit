@@ -38,7 +38,6 @@ body{
     var(--bg);
   color:var(--text);
   font-family:'DM Sans',sans-serif;
-  cursor:none;
   overflow-x:hidden;
   min-height:100vh;
 }
@@ -62,6 +61,7 @@ body{
 
 /* CURSOR */
 #cursor{
+  display:none;
   position:fixed;top:0;left:0;
   font-size:34px;line-height:1;
   pointer-events:none;
@@ -71,7 +71,8 @@ body{
   user-select:none;
   will-change:left,top;
 }
-#cursor.smash{transform:translate(-30%,-50%) scale(0.8) rotate(-14deg)}
+#cursor.on{display:block}
+#cursor.smash{transform:translate(-30%,-50%) scale(0.75) rotate(-10deg)}
 
 /* PROGRESS: a strip of film frames */
 #prog{
@@ -293,6 +294,9 @@ body{
   .work-grid{gap:8px 18px}
   .who-photo{width:40px;height:40px;margin-bottom:10px}
   #p4 .links{gap:4px}
+  .edit-list{gap:3px}
+  .ach-list{gap:4px}
+  .edit{font-size:10.5px}
   #p4 .who-tag{font-size:11.5px}
 }
 
@@ -327,7 +331,7 @@ body{
 
 <div id="grain"></div>
 <div id="vignette"></div>
-<div id="cursor">🎬</div>
+<div id="cursor">👐</div>
 <div id="prog"></div>
 <div id="tagline">lights, camera</div>
 <button id="nuke"><span class="dot"></span>ROLL ALL SCENES<br><span style="font-size:10px;opacity:0.55;letter-spacing:0.15em;text-transform:lowercase">action on every slate</span></button>
@@ -353,8 +357,19 @@ body{
     <div class="lbl">WORK</div>
     <div class="work-grid">
       <div class="work-card">
+        <div class="work-name">lostintrovert</div>
+        <p class="work-sub">Creator. 8.3M+ views. Made a Rang De Basanti edit that actor Atul Kulkarni turned into a collaboration.</p>
+        <a class="work-link" href="https://www.instagram.com/p/DRhlf2CDcfg/" target="_blank" rel="noopener">view collaboration →</a>
+        <div class="edit-list" style="margin-top:12px">
+          <div class="edit"><span class="edit-t">Rang De Basanti</span> <span class="edit-d">Lakshman Pandey | Ram Prasad Bismil</span> <a class="work-link" href="https://www.youtube.com/watch?v=FsPRKPPkZWc" target="_blank" rel="noopener">watch →</a></div>
+          <div class="edit"><span class="edit-t">Tamasha</span> <span class="edit-d">All I Want | Ved and Tara</span> <a class="work-link" href="https://www.youtube.com/watch?v=VMqLZIeI870" target="_blank" rel="noopener">watch →</a></div>
+          <div class="edit"><span class="edit-t">La La Land</span> <span class="edit-d">The Night We Met | Mia and Sebastian</span> <a class="work-link" href="https://www.youtube.com/watch?v=Pg4Y9JXXhL0" target="_blank" rel="noopener">watch →</a></div>
+          <div class="edit"><span class="edit-t">Natasha Romanoff</span> <span class="edit-d">It's Okay</span> <a class="work-link" href="https://www.youtube.com/watch?v=XJZ4-YuI0hk" target="_blank" rel="noopener">watch →</a></div>
+        </div>
+      </div>
+      <div class="work-card">
         <div class="work-name">IJS Electronics</div>
-        <p class="work-sub">Head of Operations &amp; Finance. Drove 40% turnover increase. SQL forecasting cut stock delays 30%. Managed plant relocations, GeM OEM verification, and Auto Expo 2025.</p>
+        <p class="work-sub">Head of Operations &amp; Finance. Drove 40% turnover increase. SQL forecasting cut stock delays 30%. Managed plant relocations, GeM OEM verification, and Auto Expo 2025. Rebuilt the brand website and ran Fire India 2026.</p>
         <div class="tags">
           <span class="tag">President's Escort Fleet</span>
           <span class="tag">PM Convoy</span>
@@ -363,16 +378,6 @@ body{
           <span class="tag">13+ Police Forces</span>
           <span class="tag">OEM Maruti</span>
           <span class="tag">40% Turnover</span>
-        </div>
-      </div>
-      <div class="work-card">
-        <div class="work-name">lostintrovert</div>
-        <p class="work-sub">Creator. 8.3M+ views. Made a Rang De Basanti edit that actor Atul Kulkarni turned into a collaboration.</p>
-        <a class="work-link" href="https://www.instagram.com/p/DRhlf2CDcfg/" target="_blank" rel="noopener">view collaboration →</a>
-        <div class="edit-list" style="margin-top:12px">
-          <div class="edit"><span class="edit-t">Rang De Basanti</span> <span class="edit-d">Lakshman Pandey | Ram Prasad Bismil</span> <a class="work-link" href="https://www.youtube.com/watch?v=FsPRKPPkZWc" target="_blank" rel="noopener">watch →</a></div>
-          <div class="edit"><span class="edit-t">Tamasha</span> <span class="edit-d">All I Want | Ved and Tara</span> <a class="work-link" href="https://www.youtube.com/watch?v=VMqLZIeI870" target="_blank" rel="noopener">watch →</a></div>
-          <div class="edit"><span class="edit-t">Natasha Romanoff</span> <span class="edit-d">It's Okay</span> <a class="work-link" href="https://www.youtube.com/watch?v=XJZ4-YuI0hk" target="_blank" rel="noopener">watch →</a></div>
         </div>
       </div>
     </div>
@@ -386,7 +391,8 @@ body{
     <div class="lbl">NUMBERS</div>
     <div class="nums">
       <div><div class="num-v">8.3M</div><div class="num-l">views across edits, reels &amp; film content</div></div>
-      <div><div class="num-v">40%</div><div class="num-l">turnover growth at IJS Electronics</div></div>
+      <div><div class="num-v">116K</div><div class="num-l">views on my Rang De Basanti edit</div></div>
+      <div><div class="num-v">4.6K</div><div class="num-l">YouTube subscribers</div></div>
     </div>
   </div>
   <div class="slate" data-i="2" data-lbl="NUMBERS"></div>
@@ -397,12 +403,13 @@ body{
   <div class="panel-content">
     <div class="lbl">ACHIEVEMENTS</div>
     <ul class="ach-list">
-      <li class="ach-item"><span class="ach-n">01</span><span class="ach-t">Rang De Basanti edit: actor Atul Kulkarni turned it into a collaboration (116K views). Siddharth liked it too.</span></li>
+      <li class="ach-item"><span class="ach-n">01</span><span class="ach-t">Rang De Basanti edit: actor Atul Kulkarni called it "One of my favourites!" and turned it into a collaboration (116K views). Siddharth liked it too.</span></li>
       <li class="ach-item"><span class="ach-n">02</span><span class="ach-t">8.3M+ YouTube views across film edits and cultural content</span></li>
       <li class="ach-item"><span class="ach-n">03</span><span class="ach-t">My videos have been shared across the web, including CBR, Reddit and Medium</span></li>
-      <li class="ach-item"><span class="ach-n">04</span><span class="ach-t">Built lostintrovert.com and grandwarninglights.in, design to deployment</span></li>
-      <li class="ach-item"><span class="ach-n">05</span><span class="ach-t">World Topper, Cambridge AS Mathematics (Times of India)</span></li>
-      <li class="ach-item"><span class="ach-n">06</span><span class="ach-t">Rank 1 of 5241, Decryptonite</span></li>
+      <li class="ach-item"><span class="ach-n">04</span><span class="ach-t">1st place, Digital Imaging, 17th Cofas International Computer Olympiad</span></li>
+      <li class="ach-item"><span class="ach-n">05</span><span class="ach-t">Built lostintrovert.com and grandwarninglights.in, design to deployment</span></li>
+      <li class="ach-item"><span class="ach-n">06</span><span class="ach-t">World Topper, Cambridge AS Mathematics (Times of India)</span></li>
+      <li class="ach-item"><span class="ach-n">07</span><span class="ach-t">Rank 1 of 5241, Decryptonite</span></li>
     </ul>
   </div>
   <div class="slate" data-i="3" data-lbl="ACHIEVEMENTS"></div>
@@ -455,30 +462,43 @@ if (!IS_TOUCH_DEVICE) {
   document.addEventListener('mousemove', e => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top  = e.clientY + 'px';
+    const t = e.target.closest && e.target.closest('.slate, #nuke');
+    const live = t && (t.id === 'nuke' ? !nukeDone : t._live);
+    cursor.classList.toggle('on', !!live);
   });
-  document.addEventListener('mousedown', () => cursor.classList.add('smash'));
-  document.addEventListener('mouseup',   () => cursor.classList.remove('smash'));
+  document.addEventListener('mousedown', () => { cursor.textContent = '👏'; cursor.classList.add('smash'); });
+  document.addEventListener('mouseup',   () => { setTimeout(() => { cursor.textContent = '👐'; cursor.classList.remove('smash'); }, 120); });
 }
+let nukeDone = false;
 
 /* CLAP SOUND, made in the browser (no audio files needed) */
 let ctx = null;
+let clapN = 0;
+function hit(t, freq, q, dur, gain, tone) {
+  const len = Math.floor(ctx.sampleRate * dur);
+  const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+  const d = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 5);
+  const src = ctx.createBufferSource(); src.buffer = buf;
+  const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = freq; bp.Q.value = q;
+  const g = ctx.createGain(); g.gain.value = gain;
+  src.connect(bp).connect(g).connect(ctx.destination); src.start(t);
+  const o = ctx.createOscillator(); o.type = 'triangle';
+  o.frequency.setValueAtTime(tone, t); o.frequency.exponentialRampToValueAtTime(tone * 0.28, t + 0.08);
+  const og = ctx.createGain(); og.gain.setValueAtTime(gain * 0.4, t); og.gain.exponentialRampToValueAtTime(0.001, t + 0.1);
+  o.connect(og).connect(ctx.destination); o.start(t); o.stop(t + 0.12);
+}
 function clapSound() {
   try {
     ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
     const t = ctx.currentTime;
-    const len = Math.floor(ctx.sampleRate * 0.12);
-    const buf = ctx.createBuffer(1, len, ctx.sampleRate);
-    const d = buf.getChannelData(0);
-    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 6);
-    const src = ctx.createBufferSource(); src.buffer = buf;
-    const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 1800; bp.Q.value = 0.8;
-    const g = ctx.createGain(); g.gain.setValueAtTime(0.9, t);
-    src.connect(bp).connect(g).connect(ctx.destination);
-    src.start(t);
-    const o = ctx.createOscillator(); o.type = 'triangle';
-    o.frequency.setValueAtTime(420, t); o.frequency.exponentialRampToValueAtTime(110, t + 0.08);
-    const og = ctx.createGain(); og.gain.setValueAtTime(0.35, t); og.gain.exponentialRampToValueAtTime(0.001, t + 0.1);
-    o.connect(og).connect(ctx.destination); o.start(t); o.stop(t + 0.12);
+    const r = (a, b) => a + Math.random() * (b - a);
+    const kind = clapN++ % 4;
+    if (kind === 0) hit(t, r(1600, 2000), 0.8, 0.12, 0.9, r(380, 460));            /* classic slate clap */
+    else if (kind === 1) hit(t, r(900, 1200), 1.2, 0.16, 1.0, r(220, 280));        /* deeper wooden clack */
+    else if (kind === 2) { hit(t, r(2200, 2700), 0.7, 0.08, 0.7, r(520, 620));     /* double tap, like a second sticks */
+                           hit(t + 0.07, r(1800, 2200), 0.8, 0.1, 0.8, r(420, 500)); }
+    else hit(t, r(1300, 1600), 1.6, 0.2, 0.85, r(300, 360));                         /* roomy studio clap */
   } catch (e) {}
 }
 
@@ -487,6 +507,7 @@ let rolled = 0;
 const prog = document.getElementById('prog');
 const nuke = document.getElementById('nuke');
 function setResetBtn() {
+  nukeDone = true; nuke.style.cursor = 'pointer';
   nuke.innerHTML = '🔁 TAKE TWO<br><span style="font-size:10px;opacity:0.55;letter-spacing:0.15em;text-transform:lowercase">start over</span>';
   nuke.onclick = function() { location.reload(); };
 }
