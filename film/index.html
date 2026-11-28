@@ -7,6 +7,13 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  // Own-device flag: open any page with ?me=1 once on a device to mark it internal, ?me=0 to undo
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.get('me') === '1') localStorage.setItem('sj_internal', '1');
+    if (q.get('me') === '0') localStorage.removeItem('sj_internal');
+    if (localStorage.getItem('sj_internal') === '1') gtag('set', { traffic_type: 'internal' });
+  } catch (e) {}
 
   gtag('config', 'G-HEJ34ZSL4Z');
 </script>
@@ -567,6 +574,36 @@ nuke.addEventListener('click', function() {
   });
 });
 
+})();
+</script>
+<script>
+/* ANALYTICS EVENTS (Google Analytics 4) */
+(function(){
+  function ev(name, params){
+    try { if (window.gtag) gtag('event', name, Object.assign({ transport_type: 'beacon' }, params || {})); } catch (e) {}
+  }
+  var touched = false;
+  document.addEventListener('click', function(e){
+    if (!touched) { touched = true; ev('first_interaction'); }
+    var a = e.target.closest && e.target.closest('a');
+    if (a) {
+      var href = a.getAttribute('href') || '';
+      var edit = a.closest('.edit');
+      var title = edit && edit.querySelector('.edit-t') ? edit.querySelector('.edit-t').textContent.trim() : '';
+      if (href.indexOf('resume.pdf') > -1) ev('resume_download', { link_url: href });
+      else if (href.indexOf('instagram.com/p/') > -1) ev('collab_click', { link_url: href });
+      else if (href.indexOf('youtube.com/watch') > -1) ev('work_watch', { edit_title: title, link_url: href });
+      else if (href.indexOf('mailto:') === 0) ev('contact_email');
+      else if (href.indexOf('tel:') === 0) ev('contact_phone');
+      else if (href.indexOf('linkedin.com') > -1) ev('contact_linkedin');
+      else if (href.indexOf('http') === 0) ev('outbound_link', { link_url: href });
+      return;
+    }
+    var slate = e.target.closest && e.target.closest('.slate');
+    if (slate && slate._live) { ev('slate_open', { slate: slate.getAttribute('data-lbl') }); return; }
+    var nuke = e.target.closest && e.target.closest('#nuke');
+    if (nuke) ev(nuke.textContent.indexOf('TAKE TWO') > -1 ? 'take_two' : 'roll_all');
+  }, true);
 })();
 </script>
 </body>
